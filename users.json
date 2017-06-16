@@ -1,0 +1,23 @@
+[
+    {
+        "username": "admin",
+        "password": "password",
+        "confirm_pw": "password",
+        "email": "test@yahoo.com.ph",
+        "name": "admin"
+    },
+    {
+        "username": "mark",
+        "password": "marasigan",
+        "confirm_pw": "marasigan",
+        "email": "kramlivingstone@yahoo.com.ph",
+        "name": "Mark Marasigan"
+    },
+    {
+        "username": "kramlivingstone",
+        "password": "Kr4mR3a110313",
+        "confirm_pw": "Kr4mR3a110313",
+        "email": "kramlivingstone@yahoo.com.ph",
+        "name": "Mark Livingstone"
+    }
+]

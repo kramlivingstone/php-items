@@ -15,8 +15,23 @@ $items = [
 			  'description' => 'A variety of a species of thistle cultivated as a food.',
 			  'image' => 'img/carrot.jpg',
 			  'price' => 'Php 120.00',
-			  'category' => 'Orange']
-		  ];
+			  'category' => 'Orange'],
+			  ['name'=> 'Cabbage',
+			  'description' => 'A variety of a species of thistle cultivated as a food.',
+			  'image' => 'img/cabbage.jpg',
+			  'price' => 'Php 150.00',
+			  'category' => 'Green'],
+			  ['name'=> 'Cabbage',
+			  'description' => 'A variety of a species of thistle cultivated as a food.',
+			  'image' => 'img/cabbage.jpg',
+			  'price' => 'Php 150.00',
+			  'category' => 'Green'],
+			   ['name'=> 'Artichoke',
+			  'description' => 'A variety of a species of thistle cultivated as a food.',
+			  'image' => 'img/artichoke.jpg',
+			  'price' => 'Php 200.00',
+			  'category' => 'Green']
+		 ];
 
 	$category = array_unique(array_column($items,'category'));
 
@@ -31,27 +46,54 @@ $items = [
 				echo "<option value='$value'>$value</option>";
 		}	
 		echo "</select>";
-		echo " <input type='submit' name='submit' value='Submit'>";
+		echo " <input type='submit' name='submit' value='Submit'> <br>";
 	}
 
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Vegetables</title>
-	<!-- Skeleton CSS -->
-	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+require_once 'top.php';
 
-	<!-- External CSS -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-<div class="container">
-<form method="POST" action="">
-	<?php create_dropdown('category',$category); ?>
-</form>
-<?php 
+echo "<form method='POST' action=''>";
+	create_dropdown('category',$category);
+echo "</form>";
+	echo "<div class='row'>";
+	foreach ($items as $item) {
+		if(!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All')
+		 {
+				echo "<div class='col-sm-6 col-md-4'>";
+					echo "<div class='thumbnail'>";
+						echo "<img id='itemImage' src =" . $item['image'] . " alt='vegetables'>";
+						echo "<div class='caption'>";
+							echo "<h3>" . $item['name'] . "</h3>";
+							echo "<p>" . $item['description'] . "</p>";
+							echo "<p>" . $item['price'] . "</p>";
+							echo "<p><a href='#' class='btn btn-primary' role='button'> View Details</a><p>";
+						echo "</div>";
+					echo "</div>";
+				echo "</div>";
+		}	
+
+	}
+	echo "</div>";
+
+require_once 'bottom.php';
+
+
+
+
+
+
+	// foreach ($items as $item) {
+	// 	if (!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All') {
+	// 		$name = $item['name'];
+	// 		$description = $item['description'];
+	// 		$price = $item['price'];
+	// 		$image = $item['image'];
+	// 		$category = $item['category'];
+			
+	// 		echo "$name <br> $description <br> $price <br> $image <br> $category <br><hr>";
+	// 	}
+	// }
+	// Sir PeeJay version
 
 	// foreach ($items as $item) {
 	// 		echo "<div class='row'>";
@@ -71,37 +113,5 @@ $items = [
 	// 		echo "<hr>";
 	// 	}  
 	// Version 1.0
-	
-	foreach ($items as $item) {
-		if(!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All')
-		 {
-				echo "<div class = 'row'>";
-					echo "<div class = twelve column>";
-						echo "<div class = six column> <h3>" . $item['name'] . "</h3></div>";
-						echo "<div class= six column></div>";
-						echo "<div class = six column><img src =". $item['image'] . "></div>";
-						echo "<div class = six column>" . $item['description'] . "</div>";
-						echo "<div class = six column>" . $item['price'] . "</div>";
-					echo "</div>";
-				echo "</div>";
-				echo "<hr>";
-		}	
-	}
+?>
 
-	// foreach ($items as $item) {
-	// 	if (!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All') {
-	// 		$name = $item['name'];
-	// 		$description = $item['description'];
-	// 		$price = $item['price'];
-	// 		$image = $item['image'];
-	// 		$category = $item['category'];
-			
-	// 		echo "$name <br> $description <br> $price <br> $image <br> $category <br><hr>";
-	// 	}
-	// }
-	// Sir PeeJay version
-	
- ?>
-</div>
-</body>
-</html>
