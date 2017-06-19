@@ -23,7 +23,7 @@
 		    	echo '<li id="login"><a href="login.php">Sign In</a></li>';
 	    		} else {
 	    			echo "<li class='dropdown'>";
-		    			echo "<a href='login.php' class='dropdown-toggle' data-toggle='dropdown' role='button'>Hi, " . $_SESSION['username'] . " <span class='caret'></span></a>";
+		    			echo "<a href='#' id='dropdown' class='dropdown-toggle' data-toggle='dropdown' role='button'>Hi, " . $_SESSION['username']  . " <span class='caret'></span></a>";
 		    			echo "<ul class='dropdown-menu'>";
 		    			if(isset($_SESSION['username'])){
 		    				echo "<li><a href='log_out.php'>Sign Out</a></li>";

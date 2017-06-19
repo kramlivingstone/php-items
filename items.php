@@ -32,10 +32,11 @@ function display_content() {
 
 		}
 		echo "</div>";
-		echo "<div class='row'>";
-		echo "<p><a href='add_veggies.php' class='btn btn-primary' id='add_new'>Add New</a></p>";
-		echo "</div>";
-
+		if(isset($_SESSION['username']) === 'admin') {
+			echo "<div class='row'>";
+			echo "<p><a href='add_veggies.php' class='btn btn-primary' id='add_new'>Add New</a></p>";
+			echo "</div>";
+		}	
 
 }	
 

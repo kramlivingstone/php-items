@@ -33,7 +33,9 @@
 }
 
 
-
+#dropdown:hover {
+	border-bottom: 2px solid black;
+}
 
 .thumbnail {
 	max-width: 250px;
