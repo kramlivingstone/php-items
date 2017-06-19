@@ -1,8 +1,13 @@
 <?php 
 
-require_once 'top.php';
+function get_title(){
+	echo 'About Page';
+}
 
+function display_content(){
+	echo "About Page";
+}
 
+require_once 'index.php';
 
-require_once 'bottom.php';
  ?>

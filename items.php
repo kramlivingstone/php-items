@@ -1,85 +1,45 @@
 <?php  
 
-$items = [
-			 ['name'=> 'Artichoke',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/artichoke.jpg',
-			  'price' => 'Php 200.00',
-			  'category' => 'Green'],	
-			  ['name'=> 'Cabbage',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/cabbage.jpg',
-			  'price' => 'Php 150.00',
-			  'category' => 'Green'],
-			  ['name'=> 'Carrot',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/carrot.jpg',
-			  'price' => 'Php 120.00',
-			  'category' => 'Orange'],
-			  ['name'=> 'Cabbage',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/cabbage.jpg',
-			  'price' => 'Php 150.00',
-			  'category' => 'Green'],
-			  ['name'=> 'Cabbage',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/cabbage.jpg',
-			  'price' => 'Php 150.00',
-			  'category' => 'Green'],
-			   ['name'=> 'Artichoke',
-			  'description' => 'A variety of a species of thistle cultivated as a food.',
-			  'image' => 'img/artichoke.jpg',
-			  'price' => 'Php 200.00',
-			  'category' => 'Green']
-		 ];
+
+function get_title() {
+	echo 'Vegetables';
+}
+
+function display_content() { 
+	global $items;
 
 	$category = array_unique(array_column($items,'category'));
 
-	function create_dropdown($name,$option)
-	{	
-		echo "<select name='$name'>";
-		echo "<option value='All'>All</option>";
-		foreach ($option as $value) {
-			if(isset($_POST[$name]) && $_POST[$name] == $value )
-				echo "<option selected value='$value'>$value</option>";
-			else
-				echo "<option value='$value'>$value</option>";
-		}	
-		echo "</select>";
-		echo " <input type='submit' name='submit' value='Submit'> <br>";
-	}
-
-
-require_once 'top.php';
-
-echo "<form method='POST' action=''>";
-	create_dropdown('category',$category);
-echo "</form>";
-	echo "<div class='row'>";
-	foreach ($items as $item) {
-		if(!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All')
-		 {
-				echo "<div class='col-sm-6 col-md-4'>";
-					echo "<div class='thumbnail'>";
-						echo "<img id='itemImage' src =" . $item['image'] . " alt='vegetables'>";
-						echo "<div class='caption'>";
-							echo "<h3>" . $item['name'] . "</h3>";
-							echo "<p>" . $item['description'] . "</p>";
-							echo "<p>" . $item['price'] . "</p>";
-							echo "<p><a href='#' class='btn btn-primary' role='button'> View Details</a><p>";
+	echo "<form method='POST' action=''>";
+		create_dropdown('category',$category);
+	echo "</form>";
+		echo "<div class='row clearfix'>";
+		foreach ($items as $item) {
+			if(!isset($_POST['submit']) || $_POST['category'] == $item['category'] || $_POST['category'] == 'All')
+			 {
+					echo "<div class='col-sm-6 col-md-4'>";
+						echo "<div class='thumbnail'>";
+							echo "<img id='itemImage' src =" . $item['image'] . " alt='vegetables'>";
+							echo "<div class='caption'>";
+								echo "<h3>" . $item['name'] . "</h3>";
+								echo "<p>" . $item['description'] . "</p>";
+								echo "<p>" . $item['price'] . "</p>";
+								echo "<input class='btn btn-primary' type='submit' name='view_more' value='View Details'>";
+							echo "</div>";
 						echo "</div>";
 					echo "</div>";
-				echo "</div>";
-		}	
+			}	
 
-	}
-	echo "</div>";
-
-require_once 'bottom.php';
-
-
+		}
+		echo "</div>";
+		echo "<div class='row'>";
+		echo "<p><a href='add_veggies.php' class='btn btn-primary' id='add_new'>Add New</a></p>";
+		echo "</div>";
 
 
+}	
+
+require_once 'index.php';
 
 
 	// foreach ($items as $item) {

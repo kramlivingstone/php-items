@@ -83,7 +83,13 @@ footer i:hover {
 	color: black;
 }
 
-
+/*************
+	ITEMS
+**************/
+#add_new {
+	margin-right: 15px;
+	float: right;
+}
 
 /************
 	SIGN IN
@@ -116,10 +122,6 @@ form input {
 
 
 
-
-
-
-
 /**********
   REGISTER
 ***********/
@@ -132,4 +134,8 @@ form input {
 #vegImage {
 	height: 100%;
 	width: 100%;
+}
+
+.btn {
+	margin-right: 10px;
 }
